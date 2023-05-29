@@ -1,0 +1,22 @@
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+    rate 48000
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+Copy
+
+//in the card number and device number fields, enter your card and device number of your respective microphone and speakers.
+//This can be found in the bash by using aplay -l and arecord -l
