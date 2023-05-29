@@ -20,3 +20,8 @@ Copy
 
 //in the card number and device number fields, enter your card and device number of your respective microphone and speakers.
 //This can be found in the bash by using aplay -l and arecord -l
+//if you would like to test your speakers and microphone after creating this file, just use the command 'arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.raw'
+//then use 'aplay --format=S16_LE --rate=16000 out.raw' to play the recording you just did
+//use 'alsamixer' to tweak output volumes
+
+
