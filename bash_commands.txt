@@ -1,0 +1,33 @@
+#this is to update the pi's package list
+sudo apt update
+
+#install Python3 and Python3 Virtual Environment
+sudo apt install python3-dev python3-venv python3-pip libssl-dev libffi-dev libportaudio2
+
+#enabling the python3 as virtual environment
+python3 -m venv env
+
+#update python packages 
+env/bin/python3 -m pip install --upgrade pip setuptools --upgrade
+
+#how to get into the python environment that was setup
+source env/bin/activate
+
+#Installation of Google assistant library
+python3 -m pip install --upgrade google-assistant-library
+python3 -m pip install --upgrade google-assistant-sdk[samples]
+
+#authorization tool installation
+python3 -m pip install --upgrade google-auth-oauthlib[tool]
+
+#Authentication using Google account which has the project, replace the directory of json file with your actual directory of the json file where you have downloaded it
+google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --save --client-secrets DIRECTORY_OF_.JSON_FILE
+
+#can now run google-assistant with the hotword activation or push to talk based on the command, I will provide you with both, you must also put in
+#the project-id and device-id that is provided to you when you create a project in the Google Console and register a device. 
+#I have provided my device model and project id but you will have to create your own if you were to do it
+#assistant-demo is hotword activated and pushtotalk is button activated
+
+google-assistant-demo --project-id pi-assistant2-51839 --device-model-id pi-assistant2-51839-rpi4-6sqi7n
+googlesamples-assistant-pushtotalk --project-id pi-assistant2-51839 --device-model-id pi-assistant2-51839-rpi4-6sqi7n
+
